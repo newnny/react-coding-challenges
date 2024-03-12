@@ -1,5 +1,7 @@
 import Timer from './Timer'
+import ProgressBar from './ProgressBar'
 
 export {
-  Timer
+  Timer,
+  ProgressBar
 }

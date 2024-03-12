@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { List } from '../types';
-import { Timer } from '../challenges';
+import { ProgressBar, Timer } from '../challenges';
 interface ViewProps {
   list: List[]
 }
@@ -45,9 +45,12 @@ const View: React.FC<ViewProps> = ({ list }) => {
           )}
         </div>
       }
-      <div style={{padding: 20}}>
+      <div style={{ padding: 20 }}>
         {selectedItem === "Timer" &&
           <Timer />
+        }
+        {selectedItem === "Progress bar" &&
+          <ProgressBar />
         }
 
       </div>
