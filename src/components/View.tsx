@@ -12,24 +12,31 @@ const View: React.FC<ViewProps> = ({ list }) => {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ display: "flex", justifyContent: "flex-start", width: "33%" }} />
-        <div style={{ display: "flex", justifyContent: "center", width: "33%" }}>
+        
+        <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
           <button
             style={{
               border: "none",
               background: "inherit",
               cursor: "pointer",
-              fontSize: 16
+              fontSize: 20,
+              color:'#02343f',
+              fontWeight:'bold'
             }}
             onClick={() => setShow(!show)}
           >
             List of challenge
           </button>
         </div>
-        <div style={{ display: "flex", justifyContent: "flex-end", width: "33%" }} />
-      </div>
+        </div>
       {show &&
-        <div style={{ display: "flex", flexDirection: "column", padding: 20, marginTop: 10 }}>
+        <div style={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          padding: 20, 
+          marginTop: 10,
+          height: window.innerHeight/10
+          }}>
           {list.map(l =>
             <a
               key={l.id}
