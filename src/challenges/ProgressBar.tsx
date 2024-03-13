@@ -51,11 +51,12 @@ const ProgressBar = () => {
   return (
     <>
       <div>
+        <h1>Progress bar</h1>
         <h3>Using setInterval()</h3>
         <div>
           <div style={{ background: "#fafafa", borderRadius: 10, width: '50%', height: 30 }}>
             <div style={{
-              backgroundImage: "linear-gradient(to right, #EEBD89, #D13ABD",
+              backgroundImage: "linear-gradient(to right, #EEBD89, #D13ABD)",
               borderRadius: 10,
               width: `${input === "" ? 0 : progress}%`,
               height: 30,
