@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { List } from '../types';
-import { ProgressBar, Timer } from '../challenges';
+import { MaxCount, ProgressBar, Timer } from '../challenges';
 interface ViewProps {
   list: List[]
 }
@@ -52,7 +52,9 @@ const View: React.FC<ViewProps> = ({ list }) => {
         {selectedItem === "Progress bar" &&
           <ProgressBar />
         }
-
+        {selectedItem === "Max count" &&
+        <MaxCount />
+        }
       </div>
     </>
   )
