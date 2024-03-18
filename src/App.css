@@ -1,3 +1,39 @@
 .App {
-  margin: 15
+  width: 100vw;
+  height: 100vh;
+}
+
+#light {
+  background-color: #f0edcc;
+  color: #02343f;
+}
+
+#dark {
+  background-color: #02343f;
+  color: #f0edcc;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  background: #f0edcc;
+}
+
+.icon {
+  width: 30px;
+}
+
+.list-btn {
+  border: none;
+  background: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-weight: bold;
+  border: "none",
 }

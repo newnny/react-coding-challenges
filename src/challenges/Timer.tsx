@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 
-const Timer = () => {
+interface TimerProps {
+  theme: string | null;
+}
+
+const Timer:React.FC<TimerProps> = ({theme}) => {
   const [timer, setTimer] = useState<number>(0)
   const [isRunning, setisRunning] = useState<boolean>(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
@@ -26,14 +30,15 @@ const Timer = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h1>Timer</h1>
+      <h2>Timer</h2>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{
           display: "flex",
-          background: 'lightgrey',
+          background: "inherit",
+          border:".5px solid grey",
           borderRadius: "50%",
-          width: window.innerWidth * 0.5,
-          height: window.innerWidth * 0.5
+          width: window.innerWidth * 0.4,
+          height: window.innerWidth * 0.4
         }}
         >
           <p style={{
@@ -50,12 +55,28 @@ const Timer = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "center", marginTop: 15 }}>
         <button onClick={handleStartStop}
-          style={{ padding: 8, margin: 2 }}
+          style={{ 
+            padding: '12px 26px 12px 26px', 
+            margin: 2, 
+            border: theme == 'dark'? '#f0edcc':'#02343f', 
+            borderRadius:20,
+            background:theme == 'dark'? '#f0edcc':'#02343f', 
+            color:theme == 'dark'? '#02343f':'#f0edcc',
+            fontSize: 16
+          }}
         >
           {isRunning ? "Stop" : "Start"}
         </button>
         <button onClick={handleReset}
-          style={{ padding: 8, margin: 2 }}
+          style={{ 
+            padding: '12px 26px 12px 26px', 
+            margin: 2, 
+            border: theme == 'dark'? '#f0edcc':'#02343f', 
+            borderRadius:20,
+            background:theme == 'dark'? '#f0edcc':'#02343f', 
+            color:theme == 'dark'? '#02343f':'#f0edcc',
+            fontSize: 16
+          }}
         >
           Reset
         </button>

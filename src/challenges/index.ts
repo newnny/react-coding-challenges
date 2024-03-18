@@ -5,5 +5,5 @@ import MaxCount from './MaxCount'
 export {
   Timer,
   ProgressBar,
-  MaxCount
+  MaxCount,
 }

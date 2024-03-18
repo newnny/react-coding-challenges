@@ -1,42 +1,35 @@
-import React, { useState } from 'react';
-import { List } from '../types';
+import React, { useContext, useState } from 'react';
+import '../App.css'
+import { list } from './utils';
 import { MaxCount, ProgressBar, Timer } from '../challenges';
-interface ViewProps {
-  list: List[]
-}
+import { ThemeContext } from '../App';
 
-const View: React.FC<ViewProps> = ({ list }) => {
 
+
+const View= () => {
   const [show, setShow] = useState<boolean>(false)
   const [selectedItem, setSelecteditem] = useState<string>("")
+  const theme = useContext(ThemeContext)
   return (
     <>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        
         <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
           <button
-            style={{
-              border: "none",
-              background: "inherit",
-              cursor: "pointer",
-              fontSize: 20,
-              color:'#02343f',
-              fontWeight:'bold'
-            }}
+            className='list-btn'
             onClick={() => setShow(!show)}
           >
-            List of challenge
+            <h2>List of challenge</h2>
           </button>
         </div>
-        </div>
+      </div>
       {show &&
-        <div style={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          padding: 20, 
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: 20,
           marginTop: 10,
-          height: window.innerHeight/10
-          }}>
+          height: window.innerHeight / 10
+        }}>
           {list.map(l =>
             <a
               key={l.id}
@@ -54,13 +47,13 @@ const View: React.FC<ViewProps> = ({ list }) => {
       }
       <div style={{ padding: 20 }}>
         {selectedItem === "Timer" &&
-          <Timer />
+          <Timer theme={theme}/>
         }
         {selectedItem === "Progress bar" &&
-          <ProgressBar />
+          <ProgressBar theme={theme}/>
         }
         {selectedItem === "Max count" &&
-        <MaxCount />
+          <MaxCount theme={theme}/>
         }
       </div>
     </>

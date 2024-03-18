@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+interface ProgressBarProps {
+  theme: string | null;
+}
 
-const ProgressBar = () => {
+const ProgressBar:React.FC<ProgressBarProps> = ({theme}) => {
   const [input, setInput] = useState<string>("0")
   const [secondInput, setSecondInput] = useState<string>("0")
   const [progress, setProgress] = useState<number>(0)
@@ -51,8 +54,8 @@ const ProgressBar = () => {
   return (
     <>
       <div>
-        <h1>Progress bar</h1>
-        <h3>Using setInterval()</h3>
+        <h2>Progress bar</h2>
+        <h4>Using setInterval()</h4>
         <div>
           <div style={{ background: "#fafafa", borderRadius: 10, width: '50%', height: 30 }}>
             <div style={{
@@ -95,7 +98,7 @@ const ProgressBar = () => {
       </div>
 
       <div>
-        <h3>Using CSS transition</h3>
+        <h4>Using CSS transition</h4>
         <div>
           <div style={{ background: "#fafafa", borderRadius: 10, width: '50%', height: 30 }}>
             <div style={{

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const MaxCount = () => {
+interface MaxCountProps {
+  theme: string | null;
+}
+
+const MaxCount:React.FC<MaxCountProps> = ({theme}) => {
   const [start, setStart] = useState(false)
   const [click, setClick] = useState<number>(0)
   const [time, setTime] = useState<number>(10)
@@ -38,7 +42,7 @@ const MaxCount = () => {
 
   return (
     <div>
-      <h1>Max Count</h1>
+      <h2>Max Count</h2>
       <p>please click the button as many as you can till the times up.</p>
       <button
         onClick={() => setStart(!start)}
