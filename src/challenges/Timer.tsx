@@ -36,9 +36,8 @@ const Timer:React.FC<TimerProps> = ({theme}) => {
           display: "flex",
           background: "inherit",
           border:".5px solid grey",
-          borderRadius: "50%",
           width: window.innerWidth * 0.4,
-          height: window.innerWidth * 0.4
+          height:  window.innerWidth * 0.1
         }}
         >
           <p style={{

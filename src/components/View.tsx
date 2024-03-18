@@ -11,7 +11,7 @@ const View= () => {
   const [selectedItem, setSelecteditem] = useState<string>("")
   const theme = useContext(ThemeContext)
   return (
-    <>
+    <div className='view-div'>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
           <button
@@ -56,7 +56,7 @@ const View= () => {
           <MaxCount theme={theme}/>
         }
       </div>
-    </>
+    </div>
   )
 }
 
