@@ -55,8 +55,11 @@ const ScrollToTop: React.FC<ScrollToTopProps> = ({ theme }) => {
 
         </p>
       </div>
+      <hr />
       <div>
         <h3>Example</h3>
+        <p>Goal: Show a 'scroll top' button when a user scroll all the way down.</p>
+        <hr style={{borderTop: '1px dashed grey', }}/>
         {RandomData.map(d =>
           <div key={d.id}>
             <p>
