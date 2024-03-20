@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import '../App.css'
 import { list } from './utils';
-import { MaxCount, ProgressBar, Timer } from '../challenges';
+import { ChangeOrder, MaxCount, ProgressBar, ScrollToTop, Timer } from '../challenges';
 import { ThemeContext } from '../App';
 
 
 
-const View= () => {
+const View = () => {
   const [show, setShow] = useState<boolean>(false)
   const [selectedItem, setSelecteditem] = useState<string>("")
   const theme = useContext(ThemeContext)
@@ -45,15 +45,21 @@ const View= () => {
           )}
         </div>
       }
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 20 }} id={theme!}>
         {selectedItem === "Timer" &&
-          <Timer theme={theme}/>
+          <Timer theme={theme} />
         }
         {selectedItem === "Progress bar" &&
-          <ProgressBar theme={theme}/>
+          <ProgressBar theme={theme} />
         }
         {selectedItem === "Max count" &&
-          <MaxCount theme={theme}/>
+          <MaxCount theme={theme} />
+        }
+        {selectedItem === "Scroll to top" &&
+          <ScrollToTop theme={theme} />
+        }
+        {selectedItem === "Change order" &&
+          <ChangeOrder theme={theme} />
         }
       </div>
     </div>

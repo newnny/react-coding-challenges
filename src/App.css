@@ -1,15 +1,15 @@
 .App {
   width: 100vw;
-  height: 100vh;
+  height: auto;
 }
 
 #light {
-  background-color: #f0edcc;
+  background: #f0edcc;
   color: #02343f;
 }
 
 #dark {
-  background-color: #02343f;
+  background: #02343f;
   color: #f0edcc;
 }
 
