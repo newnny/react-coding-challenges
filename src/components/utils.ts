@@ -4,7 +4,8 @@ export const list = [
   { id: 3, name: "Max count" },
   { id: 4, name: "Scroll to top" },
   { id: 5, name: "Change order" },
-  //{ id: 6, name: "" },
+  { id: 6, name: "Sudoku" },
+  //{ id: 7, name: "" },
 ];
 
 export const RandomData = [

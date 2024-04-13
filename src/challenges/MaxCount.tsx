@@ -41,7 +41,7 @@ const MaxCount:React.FC<MaxCountProps> = ({theme}) => {
 
 
   return (
-    <div>
+    <>
       <h2>Max Count</h2>
       <p>please click the button as many as you can till the times up.</p>
       <button
@@ -56,7 +56,7 @@ const MaxCount:React.FC<MaxCountProps> = ({theme}) => {
       >
         {start ? 'stop' : 'start'}
       </button>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <section style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h3> you clicked {click} times</h3>
 
         {start && <h2>{time} second</h2>}
@@ -73,8 +73,8 @@ const MaxCount:React.FC<MaxCountProps> = ({theme}) => {
         >
           CLICK
         </button>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }
 

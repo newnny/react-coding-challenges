@@ -11,9 +11,11 @@ function App() {
   const toggleTheme = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
+
+ 
   return (
     <ThemeContext.Provider value={theme}>
-      <div className="App" id={theme}>
+      <main className="App" id={theme}>
         <div className="btn-div">
           <button onClick={toggleTheme} className="btn">
             {theme === 'light' ?
@@ -23,7 +25,7 @@ function App() {
           </button>
         </div>
         <View />
-      </div>
+      </main>
     </ThemeContext.Provider>
   );
 }

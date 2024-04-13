@@ -53,7 +53,7 @@ const ProgressBar:React.FC<ProgressBarProps> = ({theme}) => {
 
   return (
     <>
-      <div>
+      <section>
         <h2>Progress bar</h2>
         <h4>Using setInterval()</h4>
         <div>
@@ -95,9 +95,9 @@ const ProgressBar:React.FC<ProgressBarProps> = ({theme}) => {
             Clear
           </button>
         </div>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <h4>Using CSS transition</h4>
         <div>
           <div style={{ background: "#fafafa", borderRadius: 10, width: '50%', height: 30 }}>
@@ -139,7 +139,7 @@ const ProgressBar:React.FC<ProgressBarProps> = ({theme}) => {
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }
