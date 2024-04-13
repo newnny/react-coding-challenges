@@ -8,6 +8,7 @@ const MaxCount = lazy(() => import('../challenges/MaxCount'))
 const ScrollToTop = lazy(() => import('../challenges/ScrollToTop'))
 const Timer = lazy(() => import('../challenges/Timer'))
 const ProgressBar = lazy(() => import('../challenges/ProgressBar'))
+const Sudoku = lazy(() => import('../challenges/Sudoku'))
 
 const View = () => {
   const [show, setShow] = useState<boolean>(false)
@@ -48,8 +49,7 @@ const View = () => {
         </dl>
       }
       <dl style={{ padding: 20 }} id={theme!}>
-        <Suspense fallback={<p>loading</p>}>
-
+        <Suspense fallback={<p>Loading</p>}>
           {selectedItem === "Timer" &&
             <Timer theme={theme} />
           }
@@ -64,6 +64,9 @@ const View = () => {
           }
           {selectedItem === "Change order" &&
             <ChangeOrder theme={theme} />
+          }
+          {selectedItem === "Sudoku" &&
+            <Sudoku theme={theme} />
           }
         </Suspense>
       </dl>

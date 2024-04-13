@@ -1,0 +1,34 @@
+.grid-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 0.1rem;
+  width: 350px;
+  height: 330px;
+}
+
+.input{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.btn-section {
+margin: 10px
+}
+
+#light {
+  background: #f0edcc;
+  color: #02343f;
+}
+
+#dark {
+  background: #02343f;
+  color: #f0edcc;
+}
