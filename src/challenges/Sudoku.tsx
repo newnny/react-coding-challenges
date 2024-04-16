@@ -1,7 +1,3 @@
-//grid input
-//make list of combine inputs into an array 
-//submit
-//validation check
 import { useState } from 'react';
 import './SudokuStyles.css'
 
@@ -50,7 +46,7 @@ const Sudoku = ({ theme }: SudokuProps) => {
     setSecondRow({ ...secondRow, [field]: value })
   }
   const setThirdRowField = (field: string, value: string) => {
-    setThirdRow({ ...firstRow, [field]: value })
+    setThirdRow({ ...thirdRow, [field]: value })
   }
   const setFourthRowField = (field: string, value: string) => {
     setFourthRow({ ...fourthRow, [field]: value })
@@ -71,40 +67,26 @@ const Sudoku = ({ theme }: SudokuProps) => {
     setNinethRow({ ...ninethRow, [field]: value })
   }
 
+  const example = [
+    ["1", "2", "3"],
+    ["2", "3", "1"],
+    ["3", "2", "1"],
+  ]
+
   const handleInputValidation = (result: string[][]) => {
-    for (const cell of result) {
-      if (cell.includes("")) {
+    for (const line of result) {
+      const hasDuplicates = line.length !== new Set(line).size ? true : false
+      const hasInvalidNum = (line.length === 9 && line.find(num => Number(num) < 0 || Number(num) > 9)) ? true : false
+      if(hasDuplicates || hasInvalidNum){
         return false
-      } else {
-        if (cell.find(num => Number(num) < 1 || Number(num) > 9)) {
-          return false
-        } else {
-          const unique = new Set()
-          const duplicated = []
-
-          cell.forEach(item => {
-            if (unique.has(item)){
-              duplicated.push(item)
-            } else {
-              unique.add(item)
-            }
-          })
-
-          if (duplicated.length>0){
-            return false 
-          } else {
-            return true
-          }
-        }
-      }
+      } 
     }
-
-
+    return true
   }
 
   const handleSubmit = () => {
-    var totalInput = []
-    totalInput.push(
+    let submittedInput = []
+    submittedInput.push(
       Object.values(firstRow),
       Object.values(secondRow),
       Object.values(thirdRow),
@@ -116,10 +98,18 @@ const Sudoku = ({ theme }: SudokuProps) => {
       Object.values(ninethRow)
     )
 
-    console.log(totalInput)
-    const validation = handleInputValidation(totalInput)
+    const getColumns = (rows: string[][]) => rows.map((_, colIdx) => rows.map(row => row[colIdx]))
+    let columns = getColumns(submittedInput)
 
-    validation ? setResultMsg('Success!') : setResultMsg('Please check input fields again.')
+    const rowValidation = handleInputValidation(submittedInput)
+    const columnValidation = handleInputValidation(columns)
+    console.log(rowValidation, columnValidation, "row/col")
+
+    if (rowValidation && columnValidation) {
+      setResultMsg('Success!')
+    } else {
+      setResultMsg('Please check input fields again.')
+    }
   }
 
   const handleReset = () => {
@@ -286,7 +276,7 @@ const Sudoku = ({ theme }: SudokuProps) => {
               <input
                 className='input'
                 value={thirdRow.eighth}
-                onChange={e => setThirdRowField('eigth', e.target.value)}
+                onChange={e => setThirdRowField('eighth', e.target.value)}
               />
               <input
                 className='input'
@@ -621,10 +611,10 @@ const Sudoku = ({ theme }: SudokuProps) => {
           </dl>
         </article>
         <article className='btn-section' >
-          <button onClick={handleSubmit} id='theme'>
+          <button onClick={handleSubmit} id='theme' className='btn'>
             Submit
           </button>
-          <button onClick={handleReset} id='theme'>
+          <button onClick={handleReset} id='theme' className='btn'>
             Reset
           </button>
         </article>

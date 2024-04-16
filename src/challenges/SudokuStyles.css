@@ -2,33 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 0.1rem;
   width: 350px;
   height: 330px;
 }
 
-.input{
+.input {
   width: 30px;
   height: 30px;
   text-align: center;
 }
 
 .btn-section {
-margin: 10px
+  margin: 10px;
 }
 
-#light {
+.btn {
+  padding: 8px 16px;
+  margin: 8px;
+  border: #02343f;
+}
+
+ .btn #light {
   background: #f0edcc;
   color: #02343f;
 }
 
-#dark {
+ .btn #dark {
   background: #02343f;
   color: #f0edcc;
 }
